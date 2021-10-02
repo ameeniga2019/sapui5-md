@@ -1,0 +1,21 @@
+<mvc:View
+    controllerName="sapui5.md.masterdetail.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<App >
+    <pages>
+    <Page title="Customer details">
+    <content>
+    <List id="idList" items="{md>/value}" mode="SingleSelectMaster">
+    <items>
+    <StandardListItem title="{md>ContactName}" info="{md>CustomerID}"  description="{md>City}" type="Navigation" press="onPress"  ></StandardListItem>
+    </items>
+    </List>
+    </content>
+    
+    </Page>
+    </pages>
+    </App>
+</mvc:View>

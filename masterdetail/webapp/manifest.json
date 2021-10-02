@@ -55,6 +55,12 @@
                 "settings": {
                     "bundleName": "sapui5.md.masterdetail.i18n.i18n"
                 }
+            },
+            "md" : {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "model/data.json",
+                "preload": true
+                 
             }
         },
         "resources": {
@@ -72,7 +78,8 @@
                 "viewPath": "sapui5.md.masterdetail.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
-                "clearControlAggregation": false
+                "clearControlAggregation": false,
+                "viewLevel": 1
             },
             "routes": [
                 {
@@ -80,6 +87,20 @@
                     "pattern": "RouteAppView",
                     "target": [
                         "TargetAppView"
+                    ]
+                },
+                {
+                    "name": "Master",
+                    "pattern": "",
+                    "target": [
+                        "TargetMasterView"
+                    ]
+                },
+                {
+                    "name": "Detail",
+                    "pattern": "/",
+                    "target": [
+                        "TargetDetailView"
                     ]
                 }
             ],
@@ -90,6 +111,20 @@
                     "clearControlAggregation": false,
                     "viewId": "AppView",
                     "viewName": "AppView"
+                },
+                 "TargetMasterView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "masterPages",
+                    "viewName": "Master",
+                    "viewLevel": 1
+                },
+                "TargetDetailView": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "detailPages",
+                    "viewName": "Detail",
+                    "viewLevel": 1
                 }
             }
         }
@@ -97,5 +132,5 @@
     "sap.cloud": {
         "public": true,
         "service": "sapui5-md-masterdetail"
-    }
+    } 
 }
